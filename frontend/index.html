@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления Discord ботом</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚙️ Панель управления ботом</h1>
+            <p>Настройте вашего Discord бота</p>
+        </header>
+
+        <div class="status-card">
+            <div id="connectionStatus" class="status offline">
+                <span class="status-dot"></span>
+                Проверка подключения...
+            </div>
+        </div>
+
+        <form id="settingsForm" class="settings-form">
+            <div class="form-group">
+                <label for="prefix">Префикс команд:</label>
+                <input type="text" id="prefix" name="prefix" placeholder="!" maxlength="3">
+                <small>Символ для вызова команд (макс. 3 символа)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Статус бота:</label>
+                <select id="status" name="status">
+                    <option value="online">🟢 Online</option>
+                    <option value="idle">🟡 Idle</option>
+                    <option value="dnd">🔴 Do Not Disturb</option>
+                    <option value="invisible">⚫ Invisible</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Активность бота:</label>
+                <input type="text" id="activity" name="activity" placeholder="Играет в...">
+                <small>То, что будет отображаться как "играет в..."</small>
+            </div>
+
+            <button type="submit" id="saveBtn" class="btn-primary">
+                💾 Сохранить настройки
+            </button>
+        </form>
+
+        <div id="message" class="message"></div>
+
+        <div class="current-settings">
+            <h3>Текущие настройки:</h3>
+            <pre id="currentSettings">Загрузка...</pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
